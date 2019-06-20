@@ -43,7 +43,7 @@ namespace SpotifySlackIntegration
         {
             while (true)
             {
-                Thread.Sleep(10000);
+                Thread.Sleep(30000);
                 PlaybackContext Context = await Api.GetPlayingTrackAsync();
                 if(!Context.HasError() && Context.IsPlaying && IsNotAd(Context))
                 {

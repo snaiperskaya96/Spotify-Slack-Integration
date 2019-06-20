@@ -12,15 +12,17 @@ Item {
             model.onLoad();
         }
     }
+    
     SystemTrayIcon {
         id: trayIcon
         visible: true
         icon.source: "https://img.icons8.com/android/24/000000/music.png"
 
-        onActivated: {
-            window.show()
-            window.raise()
-            window.requestActivate()
+        menu: Menu {
+            MenuItem {
+                text: qsTr("Quit")
+                onTriggered: Qt.quit()
+            }
         }
     }
 }
