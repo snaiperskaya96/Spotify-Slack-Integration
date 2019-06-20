@@ -59,7 +59,7 @@ namespace SpotifySlackIntegration
                     JObject Profile = new JObject();
                     Profile["status_text"] = SlackMessage;
                     Profile["status_emoji"] = ":notes:";
-                    Profile["status_expiration"] = (int)(Context.Item.DurationMs - Context.ProgressMs / 1000);
+                    Profile["status_expiration"] = (int)((Context.Item.DurationMs - Context.ProgressMs) / 1000);
 
                     Dictionary<string, string> Values = new Dictionary<string, string>
                     {
@@ -68,7 +68,6 @@ namespace SpotifySlackIntegration
                     };
 
                     FormUrlEncodedContent Content = new FormUrlEncodedContent(Values);
-
                     HttpResponseMessage Response = await SlackClient.PostAsync("https://slack.com/api/users.profile.set", Content);
                     //Console.WriteLine(await Response.Content.ReadAsStringAsync());
                 }
