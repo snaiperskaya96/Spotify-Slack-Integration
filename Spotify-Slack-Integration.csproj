@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>Spotify_Slack_Integration</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SpotifyAPI.Web" Version="4.1.0"/>
+    <PackageReference Include="SpotifyAPI.Web.Auth" Version="4.1.0"/>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2"/>
+    <PackageReference Include="Qml.Net" Version="0.10.1"/>
+    <PackageReference Include="Qml.Net.WindowsBinaries" Condition=" '$(OS)' == 'Windows_NT' " Version="0.10.1"/>
+    <PackageReference Include="Qml.Net.LinuxBinaries" Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Linux)))'" Version="0.10.1"/>
+    <PackageReference Include="Qml.Net.OSXBinaries" Condition=" '$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))'" Version="0.10.1" />
+    <PackageReference Include="NSubsys" Version="1.0.0"/>
+ 
+    <Content Include="TrayIcon.qml" CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+</Project>
